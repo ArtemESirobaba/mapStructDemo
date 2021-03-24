@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 import java.util.List;
 
 @Mapper(componentModel = "spring",
-  uses = {PersonMapper.class, CompanyMapper.class, AddressMapper.class, AccountMapper.class})
+  uses = {PersonMapper.class, CompanyMapper.class, AddressMapper.class})
 public interface CustomerMapper {
 
   @Mapping(source = "accounts", target = "applyingAccounts")

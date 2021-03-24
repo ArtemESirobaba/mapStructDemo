@@ -1,9 +1,7 @@
 package com.example.demo.mapper;
 
 
-import com.example.demo.modelapplying.ApplyingCustomer;
 import com.example.demo.modelapplying.ApplyingPerson;
-import com.example.demo.modeldto.CustomerDTO;
 import com.example.demo.modeldto.PersonDTO;
 import org.mapstruct.Mapper;
 
