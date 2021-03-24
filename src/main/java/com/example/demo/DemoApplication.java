@@ -17,8 +17,8 @@ import java.util.Collections;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
-	@Autowired
-	private AccountMapper accountMapper;
+//	@Autowired
+//	private AccountMapper accountMapper;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -64,9 +64,9 @@ public class DemoApplication implements CommandLineRunner {
 				.department("department")
 				.build();
 
-		ApplyingAccount applyingAccount = accountMapper.toApplying(accountDTO);
+//		ApplyingAccount applyingAccount = accountMapper.toApplying(accountDTO);
 
-		System.out.println(applyingAccount);
+//		System.out.println(applyingAccount);
 
 	}
 }

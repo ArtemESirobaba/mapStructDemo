@@ -4,25 +4,14 @@ package com.example.demo.mapper;
 import com.example.demo.modelapplying.ApplyingAccount;
 import com.example.demo.modeldto.AccountDTO;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public interface AccountMapper extends DtoMapper<AccountDTO, ApplyingAccount> {
+public interface AccountMapper {
 
-  @Override
-  ApplyingAccount toApplying(AccountDTO dto);
+  ApplyingAccount accountDTOToApplyingAccount(AccountDTO dto);
 
-  @Override
-  List<ApplyingAccount> toApplying(List<AccountDTO> dto);
+  List<ApplyingAccount> accountDTOToApplyingAccount(List<AccountDTO> dto);
 
-  default AccountDTO fromId (Integer id) {
-    if (id == null) {
-      return null;
-    }
-    AccountDTO account = new AccountDTO();
-    account.setId(id);
-    return account;
-  }
 }

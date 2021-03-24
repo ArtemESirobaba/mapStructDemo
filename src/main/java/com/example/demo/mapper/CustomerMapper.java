@@ -1,29 +1,21 @@
 package com.example.demo.mapper;
 
 
-import com.example.demo.modelapplying.ApplyingCompany;
 import com.example.demo.modelapplying.ApplyingCustomer;
-import com.example.demo.modeldto.CompanyDTO;
 import com.example.demo.modeldto.CustomerDTO;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
-public interface CustomerMapper extends DtoMapper<CustomerDTO, ApplyingCustomer> {
+@Mapper(componentModel = "spring",
+  uses = {PersonMapper.class, CompanyMapper.class, AddressMapper.class, AccountMapper.class})
+public interface CustomerMapper {
 
-  @Override
-  ApplyingCustomer toApplying(CustomerDTO dto);
+  @Mapping(source = "accounts", target = "applyingAccounts")
+  ApplyingCustomer customerDTOToApplyingCustomer(CustomerDTO dto);
 
-  @Override
-  List<ApplyingCustomer> toApplying(List<CustomerDTO> dto);
+  @Mapping(source = "accounts", target = "applyingAccounts")
+  List<ApplyingCustomer> customerDTOToApplyingCustomer(List<CustomerDTO> dto);
 
-  default CustomerDTO fromId (Integer id) {
-    if (id == null) {
-      return null;
-    }
-    CustomerDTO customer = new CustomerDTO();
-    customer.setId(id);
-    return customer;
-  }
 }

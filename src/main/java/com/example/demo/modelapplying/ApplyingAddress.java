@@ -1,16 +1,11 @@
 package com.example.demo.modelapplying;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Data
-@ToString(callSuper = true)
-@SuperBuilder(toBuilder = true)
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApplyingAddress {

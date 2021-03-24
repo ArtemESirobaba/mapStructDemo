@@ -9,20 +9,12 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
-public interface PersonMapper extends DtoMapper<PersonDTO, ApplyingPerson> {
-  @Override
-  ApplyingPerson toApplying(PersonDTO dto);
+@Mapper(componentModel = "spring",
+  uses = AddressMapper.class)
+public interface PersonMapper {
 
-  @Override
-  List<ApplyingPerson> toApplying(List<PersonDTO> dto);
+  ApplyingPerson personDTOToApplyingPerson(PersonDTO dto);
 
-  default PersonDTO fromId (Integer id) {
-    if (id == null) {
-      return null;
-    }
-    PersonDTO person = new PersonDTO();
-    person.setId(id);
-    return person;
-  }
+  List<ApplyingPerson> personDTOToApplyingPerson(List<PersonDTO> dto);
+
 }

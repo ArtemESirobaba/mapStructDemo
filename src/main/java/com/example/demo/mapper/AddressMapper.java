@@ -9,7 +9,9 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface AddressMapper {
+
   ApplyingAddress addressDTOToApplyingAddress(AddressDTO dto);
 
   List<ApplyingAddress> addressDTOToApplyingAddress(List<AddressDTO> dto);
+
 }
